@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ウーの港へようこそ (＾• ω •＾)</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Loading + Welcome 屏幕 -->
+    <div id="introScreen">
+        <div class="loadingWrapper">
+            <div class="introGlow loading-text">LOADING</div>
+            <div class="introGlow loading-dots"><span>.</span><span>.</span><span>.</span></div>
+        </div>
+
+        <div class="introGlow welcome-text">
+            ウーの港へようこそ (＾• ω •＾)
+        </div>
+
+        <canvas id="particleCanvas"></canvas>
+    </div>
+
+    <!-- 主内容 -->
+    <div id="mainContent">
+
+        <section class="card grid">
+            <div>
+                <h2 style="margin-top:0">自我紹介</h2>
+                <div class="intro">
+                    <p>ISFJ　 CN / JP / EN</p>
+                    <p>でっカリン, 愛莉で生きてます. ♂</p>
+                    <p>のんびりで (リアル & VRC) 写真撮ったり動画作成したりしてる :3</p>
+                    <p>車好き・航空ファン</p>
+                </div>
+            </div>
+
+            <div class="photo-box">
+                <img src="images/BG_1.jpg" alt="Photo">
+            </div>
+        </section>
+
+        <!-- Banner 无限滚动区 -->
+        <div class="banner-wrapper">
+            <div class="banner-track">
+                <img src="images/BANNER1.jpg">
+                <img src="images/BANNER2.jpg">
+                <img src="images/BANNER3.jpg">
+                <img src="images/BANNER4.jpg">
+                <img src="images/BANNER5.jpg">
+                <!-- 循环复制 -->
+                <img src="images/BANNER1.jpg">
+                <img src="images/BANNER2.jpg">
+                <img src="images/BANNER3.jpg">
+                <img src="images/BANNER4.jpg">
+                <img src="images/BANNER5.jpg">
+            </div>
+        </div>
+
+        <!-- 视频播放器（新增） -->
+        <section class="video-section">
+            <h2>My Video</h2>
+            <div class="video-container">
+                <iframe 
+                    src="https://www.youtube.com/embed/ISTTRaOVO1g"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
