@@ -60,3 +60,36 @@ setTimeout(() => {
     }, 1300);
 
 }, 2000);
+
+
+// ------------------- 悬浮播放器逻辑 -------------------
+
+// 播放列表点击切换
+document.querySelectorAll(".fp-list div").forEach(item => {
+    item.addEventListener("click", () => {
+        document.getElementById("fpVideo").src = item.dataset.url;
+    });
+});
+
+// 关闭按钮
+document.getElementById("fpClose").addEventListener("click", () => {
+    document.getElementById("floatingPlayer").style.display = "none";
+});
+
+// 可拖动窗口
+const fp = document.getElementById("floatingPlayer");
+let offsetX, offsetY, isDown = false;
+
+fp.addEventListener("mousedown", e => {
+    isDown = true;
+    offsetX = e.clientX - fp.offsetLeft;
+    offsetY = e.clientY - fp.offsetTop;
+});
+
+document.addEventListener("mousemove", e => {
+    if (!isDown) return;
+    fp.style.left = (e.clientX - offsetX) + "px";
+    fp.style.top = (e.clientY - offsetY) + "px";
+});
+
+document.addEventListener("mouseup", () => isDown = false);
