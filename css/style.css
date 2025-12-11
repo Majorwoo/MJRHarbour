@@ -1,0 +1,229 @@
+/* ------------------- 通用 ------------------- */
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  overflow-x: hidden;
+}
+
+/* 主背景 */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("../images/BG_1.jpg") center/cover no-repeat;
+  filter: brightness(0.55);
+  z-index: -1;
+}
+
+/* ------------------- Loading 屏幕 ------------------- */
+#introScreen {
+  position: fixed;
+  inset: 0;
+  background: url("../images/Loading.jpg") center/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+/* 粒子层 */
+#particleCanvas {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* 高级发光效果 */
+.introGlow {
+  color: #dfeaff;
+  font-weight: bold;
+  text-align: center;
+  z-index: 2;
+  text-shadow:
+      0 0 10px rgba(130,180,255,0.9),
+      0 0 20px rgba(130,180,255,0.7),
+      0 0 35px rgba(130,180,255,0.4);
+  animation: gentleFloat 3s ease-in-out infinite;
+}
+
+@keyframes gentleFloat {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Loading 字体 */
+.loadingWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loading-text {
+  font-size: 64px;
+  margin-bottom: 10px;
+}
+
+.loading-dots span {
+  animation: blink 1.4s infinite;
+  opacity: 0;
+  font-size: 60px;
+  color: #ffffff;
+}
+
+.loading-dots span:nth-child(1) { animation-delay: 0s; }
+.loading-dots span:nth-child(2) { animation-delay: 0.3s; }
+.loading-dots span:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes blink {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+/* Welcome 字体 */
+.welcome-text {
+  font-size: 58px;
+  margin-top: 40px;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+/* ------------------- 主内容 ------------------- */
+#mainContent {
+  opacity: 0;
+  transition: opacity 1.5s ease;
+  padding: 40px;
+}
+
+/* 自我介绍卡片 */
+.card {
+  background: rgba(255, 255, 255, 0.65);
+  padding: 20px;
+  border-radius: 18px;
+  backdrop-filter: blur(5px);
+  max-width: 1100px;
+  margin: auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.photo-box img {
+  width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* ------------------- Banner 无限滚动 ------------------- */
+.banner-wrapper {
+  width: 100%;
+  overflow: hidden;
+  margin-top: 40px;
+  mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+}
+
+.banner-track {
+  display: flex;
+  animation: scrollBanner 25s linear infinite;
+}
+
+.banner-track img {
+  width: 500px;
+  border-radius: 12px;
+}
+
+@keyframes scrollBanner {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ------------------- 视频播放器 ------------------- */
+.video-section {
+  max-width: 1100px;
+  margin: 60px auto 0;
+  text-align: center;
+  color: white;
+}
+
+.video-section h2 {
+  margin-bottom: 20px;
+  font-size: 32px;
+  text-shadow: 0 0 8px rgba(255,255,255,0.5);
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+}
+
+.video-container iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ------------------- 悬浮播放器 ------------------- */
+#floatingPlayer {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 260px;
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(5px);
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.6);
+  z-index: 999;
+  color: white;
+  overflow: hidden;
+  cursor: move;
+}
+
+.fp-header {
+  background: rgba(255,255,255,0.1);
+  padding: 6px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.fp-header button {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+#floatingPlayer iframe {
+  width: 100%;
+  height: 150px;
+  border: none;
+}
+
+.fp-list {
+  max-height: 120px;
+  overflow-y: auto;
+  border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+.fp-list div {
+  padding: 8px 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.fp-list div:hover {
+  background: rgba(255,255,255,0.15);
+}
