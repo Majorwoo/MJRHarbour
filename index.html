@@ -48,6 +48,7 @@
                 <img src="images/BANNER3.jpg">
                 <img src="images/BANNER4.jpg">
                 <img src="images/BANNER5.jpg">
+
                 <!-- 循环复制 -->
                 <img src="images/BANNER1.jpg">
                 <img src="images/BANNER2.jpg">
@@ -57,12 +58,12 @@
             </div>
         </div>
 
-        <!-- 视频播放器（新增） -->
+        <!-- 视频播放器 -->
         <section class="video-section">
             <h2>My Video</h2>
             <div class="video-container">
                 <iframe 
-                    src="https://www.youtube.com/embed/ISTTRaOVO1g"
+                    src="https://www.youtube.com/embed/ISTTRaOVO1g?autoplay=1&mute=1"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen>
@@ -70,6 +71,26 @@
             </div>
         </section>
 
+    </div>
+
+    <!-- 悬浮播放器（新增） -->
+    <div id="floatingPlayer">
+        <div class="fp-header">
+            <span>🎬 Player</span>
+            <button id="fpClose">✕</button>
+        </div>
+
+        <iframe id="fpVideo"
+            src="https://www.youtube.com/embed/ISTTRaOVO1g?autoplay=1&mute=1"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+
+        <div class="fp-list">
+            <div data-url="https://www.youtube.com/embed/ISTTRaOVO1g?autoplay=1&mute=1">動画 1</div>
+            <div data-url="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1">動画 2</div>
+            <div data-url="https://www.youtube.com/embed/tPEE9ZwTmy0?autoplay=1&mute=1">動画 3</div>
+        </div>
     </div>
 
     <script src="js/main.js"></script>
